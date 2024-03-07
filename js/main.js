@@ -13,12 +13,13 @@ function repartirCartar(){
     //cada
     todasLasTarjetas.forEach((ccadCarta)=> {
         //crea un div por cada elemento
-        let cart = document.createElement("div");
+        let carta = document.createElement("div");
+        carta.classList.add("carta_trasera")
         //le inserta html a mi div 
         // con el "$ Signo de perso puedo agragar variables"
-        cart.innerHTML = `<div class="carta">${ccadCarta}</div> `;
+        carta.innerHTML = `<div class="carta_frontal">${ccadCarta}</div> `;
         //le agrega como hijo al elemento cart 
-        tablero.append(cart);
+        tablero.appendChild(carta);
     })
 }
 
