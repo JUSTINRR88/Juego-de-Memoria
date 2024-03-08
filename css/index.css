@@ -1,4 +1,4 @@
-#root{
+.tablero_nuevo{
     width: 50rem;
     height: 30rem;
     border-radius: 0.5rem;
@@ -41,6 +41,10 @@
 }
 
 .activar{
+    transform: rotateY(-180deg);
+}
+
+.ocultar{
     transform: rotateY(-180deg);
 }
 

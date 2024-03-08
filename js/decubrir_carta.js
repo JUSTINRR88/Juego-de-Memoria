@@ -8,27 +8,38 @@ todas_las_carta.forEach((cada_elemento) => {
         // Seleccionar todas las cartas descubiertas
         let cartas_descubiertas = document.querySelectorAll(".activar");
         // Contar el número total de cartas descubiertas
-        let total_descubiertas = cartas_descubiertas.length;
-
         // Comprobar si hay menos de dos cartas descubiertas
-        if (total_descubiertas < 2) {
+        if (cartas_descubiertas.length < 2) {
             // Agregar la clase "activar" a la carta clicada
             cada_elemento.classList.add("activar");
             // Volver a seleccionar todas las cartas descubiertas (incluida la nueva)
             cartas_descubiertas = document.querySelectorAll(".activar");
             
             // Si ya hay una carta descubierta
-            if (total_descubiertas == 1) {
-                // Esperar un segundo y luego ocultar las cartas descubiertas
-                setTimeout(() => {
-                    cartas_descubiertas.forEach((cada_carta_descubierta) => {
-                        cada_carta_descubierta.classList.remove("activar");
-                    });
-                }, 1000);
+            if (cartas_descubiertas.length == 2) {
+                    let carta1 = cartas_descubiertas[0].innerHTML;
+                    let carta2 = cartas_descubiertas[1].innerHTML;
+                    if (carta1 == carta2) {
+                        console.log("verdadero");
+                        cartas_descubiertas.forEach((carta)=>{
+                            carta.innerHTML ="";
+                            carta.classList.remove("activar");
+                            carta.classList.add("ocultar");
+                        })
+                          // Esperar un segundo y luego ocultar las cartas descubiertas
+
+                    }else{
+                        setTimeout(() => {
+                            cartas_descubiertas.forEach((cada_carta_descubierta) => {
+                                cada_carta_descubierta.classList.remove("activar");
+                            });
+                        },1000);
+                        console.log("falso");
+                    }
             }
-        } else {
+               } else {
             // Si ya hay dos cartas descubiertas, no hacer nada por ahora
-            console.log("asdasd");
+                     console.log("asdasd");
         }
     });
 });
